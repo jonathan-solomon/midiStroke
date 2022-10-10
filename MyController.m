@@ -72,7 +72,7 @@
     
     if ([fileManager fileExistsAtPath: folder] == NO)
     {
-        [fileManager createDirectoryAtPath: folder attributes: nil];
+        [fileManager createDirectoryAtPath:folder withIntermediateDirectories:NO attributes:nil error:nil];
     }
     
     NSString *fileName = @"midiStroke.cdcmidistroke";
@@ -131,7 +131,7 @@
                             EndNote *en = [se objectAtIndex:j];
                             NSDictionary *eprop = [en properties];
 
-                            char *charString = [(NSString *)[eprop objectForKey: @"keystroke"] UTF8String];
+                            const char *charString = [(NSString *)[eprop objectForKey: @"keystroke"] UTF8String];
                             int theLetter = [self keyCodeForKeyString:charString];
 
                             CGEventFlags flags = 0;
@@ -166,7 +166,7 @@
 	}
 }
 
-- (int) keyCodeForKeyString:(char *)keyString
+- (int) keyCodeForKeyString:(const char *)keyString
 {
 	if (strcmp(keyString, "a") == 0) return 0;
 	if (strcmp(keyString, "s") == 0) return 1;
