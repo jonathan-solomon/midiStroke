@@ -158,8 +158,8 @@
 		NSMutableArray *se = [sn endNotes];
 		if ([[sp objectForKey:@"number"] intValue] == packet->data[1]) {	// if note / pgm / or cc number is the same as the received midi message
 			if ([[sp objectForKey:@"channel"] intValue] == channel || [[sp objectForKey:@"channel"] intValue] ==0) {	// if channel is the same or we're looking for all channels
-                BOOL noteDown = (type == noteOn || packet->data[2] == [[sp objectForKey:@"ccValue"] intValue]);
-                BOOL noteUp = (type == noteOff || packet->data[2] == 0);
+                BOOL noteDown = (type == noteOn || (type == cc && packet->data[2] == [[sp objectForKey:@"ccValue"] intValue]));
+                BOOL noteUp = (type == noteOff || (type == cc && packet->data[2] == 0));
                 
 				if (noteDown || noteUp) {
 					for (j=0; j<[se count]; j++) {
