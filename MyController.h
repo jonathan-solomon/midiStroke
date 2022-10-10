@@ -6,9 +6,19 @@
 #import "StartNote.h"
 #import "EndNote.h"
 
+typedef enum MidiEventType {
+    noteOn = 0,
+    noteOff,
+    cc,
+    pb,
+    as,
+    pgm
+} MidiEventType;
+
 @interface MyController : NSObject <NSApplicationDelegate>
 {
     NSMutableArray * _startNotes;
+    IBOutlet id displayLabel;
 }
 
 - (NSString *) pathForDataFile;

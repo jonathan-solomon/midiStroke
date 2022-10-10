@@ -18,20 +18,8 @@ static void readProc(const MIDIPacketList *pktlist, void *refCon, void *connRefC
 	NSAutoreleasePool *pool = [[NSAutoreleasePool alloc] init];
 	
 	MIDIPacket *packet = (MIDIPacket *)pktlist->packet; 
-	NSString *type;
 	
-	int packetStart = packet->data[0];
-	
-	if ((packetStart>>4) == 0x09) { type = @"nOn"; }	// noteOn
-	if ((packetStart>>4) == 0x08) { type = @"nOff"; }	// noteOff
-	if ((packetStart>>4) == 0x0b) { type = @"cc"; }		// cc
-	if ((packetStart>>4) == 0x0e) { type = @"pb"; }		// pitchbend
-	if ((packetStart) == 0xfe)    { type = @"as"; }		// activeSensing
-	if ((packetStart>>4) == 0x0c) { type = @"pgm"; }	// program change
-		
-    if (([type isEqual: @"nOn"] && packet->data[2] != 0) || ([type isEqual: @"nOff"]) || [type isEqual: @"cc"] || [type  isEqual: @"pgm"]) {
-		[convert midiConvert:(MIDIPacket *)packet endpoint:(MIDIPortRef *)connRefCon];
-	}
+    [convert midiConvert:(MIDIPacket *)packet endpoint:(MIDIPortRef *)connRefCon];
 	
 	[pool release];
 }

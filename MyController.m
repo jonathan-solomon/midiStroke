@@ -109,13 +109,46 @@
 
 - (void) midiConvert: (MIDIPacket *)packet endpoint:(MIDIPortRef *)ep {	
 	int i, j;
-	BOOL cc = false;
 	int pcktStart = packet->data[0];
 	int channel = (pcktStart &= 15) + 1;
-	
-	int packetStart = packet->data[0];		// remembers original type and channel of message before altering
-	if ((packetStart>>4) == 0x0b) { cc = true; }
-	
+    int packetStart = packet->data[0];
+    MidiEventType type;
+    
+    if ((packetStart>>4) == 0x09) { type = noteOn; }    // noteOn
+    if ((packetStart>>4) == 0x08) { type = noteOff; }    // noteOff
+    if ((packetStart>>4) == 0x0b) { type = cc; }        // cc
+    if ((packetStart>>4) == 0x0e) { type = pb; }        // pitchbend
+    if ((packetStart) == 0xfe)    { type = as; }        // activeSensing
+    if ((packetStart>>4) == 0x0c) { type = pgm; }    // program change
+    
+    dispatch_async(dispatch_get_main_queue(), ^{
+        NSString *typeString;
+        switch (type) {
+            case noteOn:
+                typeString = @"noteOn";
+                break;
+            case noteOff:
+                typeString = @"noteOff";
+                break;
+            case cc:
+                typeString = @"cc";
+                break;
+            case pb:
+                typeString = @"pitch";
+                break;
+            case as:
+                typeString = @"activeSensing";
+                break;
+            case pgm:
+                typeString = @"program change";
+                break;
+            default:
+                typeString = @"unknown";
+                break;
+        }
+        [displayLabel setStringValue: [NSString stringWithFormat:@"chn %d num %d %@", channel, packet->data[1], typeString]];
+    });
+    
 	//printf("the channel is: %i \n", channel);
 	//printf("the note is: %i \n", packet->data[1]);
 	
@@ -125,7 +158,10 @@
 		NSMutableArray *se = [sn endNotes];
 		if ([[sp objectForKey:@"number"] intValue] == packet->data[1]) {	// if note / pgm / or cc number is the same as the received midi message
 			if ([[sp objectForKey:@"channel"] intValue] == channel || [[sp objectForKey:@"channel"] intValue] ==0) {	// if channel is the same or we're looking for all channels
-				if (cc == false || packet->data[2] == [[sp objectForKey:@"ccValue"] intValue] || [[sp objectForKey:@"ccValue"] intValue] == -1) { // optionally looking for specific cc values
+                BOOL noteDown = (type == noteOn || packet->data[2] == [[sp objectForKey:@"ccValue"] intValue]);
+                BOOL noteUp = (type == noteOff || packet->data[2] == 0);
+                
+				if (noteDown || noteUp) {
 					for (j=0; j<[se count]; j++) {
 						dispatch_async(dispatch_get_main_queue(), ^{
                             EndNote *en = [se objectAtIndex:j];
@@ -149,14 +185,14 @@
                                 flags = flags | kCGEventFlagMaskControl;
                             }
                             
-                            if (!(packet->data[0]>>4 == 0x08)) {
+                            if (noteDown) {
                                 CGEventRef down = CGEventCreateKeyboardEvent( NULL, (CGKeyCode)theLetter, true);
                                 CGEventSetFlags(down, (flags | CGEventGetFlags(down)));
                                 CGEventPost(kCGHIDEventTap, down);
                                 CFRelease(down);
                             }
                             
-                            if (!(packet->data[0]>>4 == 0x09)) {
+                            if (noteUp) {
                                 CGEventRef up = CGEventCreateKeyboardEvent( NULL, (CGKeyCode)theLetter, false);
                                 CGEventSetFlags(up, (flags | CGEventGetFlags(up)));
                                 CGEventPost(kCGHIDEventTap, up);

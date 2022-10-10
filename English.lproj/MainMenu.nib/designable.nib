@@ -12,21 +12,21 @@
         <window title="midiStroke" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" releasedWhenClosed="NO" frameAutosaveName="msWin" animationBehavior="default" id="5" userLabel="Window">
             <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES"/>
             <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" bottomStrut="YES"/>
-            <rect key="contentRect" x="54" y="716" width="400" height="200"/>
+            <rect key="contentRect" x="54" y="716" width="400" height="224"/>
             <rect key="screenRect" x="0.0" y="0.0" width="1728" height="1079"/>
             <value key="minSize" type="size" width="400" height="200"/>
             <view key="contentView" id="6">
-                <rect key="frame" x="0.0" y="0.0" width="400" height="200"/>
+                <rect key="frame" x="0.0" y="0.0" width="400" height="224"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <scrollView toolTip="enter the number and channel for messages. only enter value for cc messages." horizontalLineScroll="14" horizontalPageScroll="0.0" verticalLineScroll="14" verticalPageScroll="0.0" hasHorizontalScroller="NO" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="21">
-                        <rect key="frame" x="24" y="24" width="170" height="161"/>
+                        <rect key="frame" x="24" y="43" width="170" height="166"/>
                         <clipView key="contentView" drawsBackground="NO" id="eJq-Ad-8aR">
-                            <rect key="frame" x="1" y="1" width="168" height="159"/>
+                            <rect key="frame" x="1" y="1" width="168" height="164"/>
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             <subviews>
                                 <tableView focusRingType="none" verticalHuggingPriority="750" allowsExpansionToolTips="YES" alternatingRowBackgroundColors="YES" multipleSelection="NO" autosaveName="mStartNotes" rowHeight="12" headerView="p1z-U4-NKb" id="22">
-                                    <rect key="frame" x="0.0" y="0.0" width="168" height="131"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="168" height="136"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <size key="intercellSpacing" width="3" height="2"/>
                                     <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
@@ -102,7 +102,7 @@
                             <autoresizingMask key="autoresizingMask"/>
                         </scroller>
                         <scroller key="verticalScroller" wantsLayer="YES" verticalHuggingPriority="750" controlSize="small" horizontal="NO" id="365">
-                            <rect key="frame" x="155" y="29" width="14" height="131"/>
+                            <rect key="frame" x="155" y="29" width="14" height="136"/>
                             <autoresizingMask key="autoresizingMask"/>
                         </scroller>
                         <tableHeaderView key="headerView" wantsLayer="YES" id="p1z-U4-NKb">
@@ -111,20 +111,20 @@
                         </tableHeaderView>
                     </scrollView>
                     <scrollView toolTip="specify keystrokes to be triggered along with any modifiers" horizontalLineScroll="14" horizontalPageScroll="0.0" verticalLineScroll="14" verticalPageScroll="0.0" hasHorizontalScroller="NO" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="27">
-                        <rect key="frame" x="207" y="24" width="171" height="161"/>
+                        <rect key="frame" x="207" y="43" width="171" height="166"/>
                         <clipView key="contentView" drawsBackground="NO" id="mvq-oa-Mjt">
-                            <rect key="frame" x="1" y="1" width="169" height="159"/>
+                            <rect key="frame" x="1" y="1" width="169" height="164"/>
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             <subviews>
                                 <tableView verticalHuggingPriority="750" allowsExpansionToolTips="YES" alternatingRowBackgroundColors="YES" columnResizing="NO" multipleSelection="NO" autosaveColumns="NO" rowHeight="12" headerView="4sh-Bh-o9n" id="28">
-                                    <rect key="frame" x="0.0" y="0.0" width="169" height="131"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="169" height="136"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <size key="intercellSpacing" width="3" height="2"/>
                                     <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
                                     <tableViewGridLines key="gridStyleMask" vertical="YES"/>
                                     <color key="gridColor" red="0.76020407999999995" green="0.76020407999999995" blue="0.76020407999999995" alpha="1" colorSpace="calibratedRGB"/>
                                     <tableColumns>
-                                        <tableColumn width="43.5" minWidth="20" maxWidth="1000" id="29">
+                                        <tableColumn width="42" minWidth="20" maxWidth="1000" id="29">
                                             <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" alignment="left" title="key">
                                                 <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
                                                 <color key="backgroundColor" white="0.33333299" alpha="1" colorSpace="calibratedWhite"/>
@@ -139,7 +139,7 @@
                                                 <binding destination="62" name="value" keyPath="arrangedObjects.properties.keystroke" id="71"/>
                                             </connections>
                                         </tableColumn>
-                                        <tableColumn width="25.5" minWidth="20" maxWidth="1000" id="36">
+                                        <tableColumn width="26" minWidth="20" maxWidth="1000" id="36">
                                             <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" alignment="left" title="">
                                                 <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
                                                 <color key="backgroundColor" white="0.33333299" alpha="1" colorSpace="calibratedWhite"/>
@@ -153,7 +153,7 @@
                                                 <binding destination="62" name="value" keyPath="arrangedObjects.properties.apple" id="72"/>
                                             </connections>
                                         </tableColumn>
-                                        <tableColumn width="25.5" minWidth="20" maxWidth="1000" id="34">
+                                        <tableColumn width="26" minWidth="20" maxWidth="1000" id="34">
                                             <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" alignment="left" title="⇧">
                                                 <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
                                                 <color key="backgroundColor" white="0.33333299" alpha="1" colorSpace="calibratedWhite"/>
@@ -167,7 +167,7 @@
                                                 <binding destination="62" name="value" keyPath="arrangedObjects.properties.shift" id="73"/>
                                             </connections>
                                         </tableColumn>
-                                        <tableColumn width="25.5" minWidth="20" maxWidth="1000" id="32">
+                                        <tableColumn width="26" minWidth="20" maxWidth="1000" id="32">
                                             <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" alignment="left" title="⌥">
                                                 <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
                                                 <color key="backgroundColor" white="0.33333299" alpha="1" colorSpace="calibratedWhite"/>
@@ -205,7 +205,7 @@
                             <autoresizingMask key="autoresizingMask"/>
                         </scroller>
                         <scroller key="verticalScroller" wantsLayer="YES" verticalHuggingPriority="750" controlSize="small" horizontal="NO" id="367">
-                            <rect key="frame" x="156" y="29" width="14" height="131"/>
+                            <rect key="frame" x="156" y="29" width="14" height="136"/>
                             <autoresizingMask key="autoresizingMask"/>
                         </scroller>
                         <tableHeaderView key="headerView" wantsLayer="YES" id="4sh-Bh-o9n">
@@ -214,7 +214,7 @@
                         </tableHeaderView>
                     </scrollView>
                     <textField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="39">
-                        <rect key="frame" x="195" y="98" width="12" height="13"/>
+                        <rect key="frame" x="195" y="120" width="12" height="13"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="8" id="73B-Fc-O9X"/>
                             <constraint firstAttribute="height" constant="13" id="MX1-Wq-ZWw"/>
@@ -226,7 +226,7 @@
                         </textFieldCell>
                     </textField>
                     <button toolTip="add a trigger note/cc/pgm change" translatesAutoresizingMaskIntoConstraints="NO" id="41">
-                        <rect key="frame" x="6" y="173" width="11" height="11"/>
+                        <rect key="frame" x="6" y="197" width="11" height="11"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="11" id="BmA-sg-U3F"/>
                             <constraint firstAttribute="height" constant="11" id="a7t-Hn-TVA"/>
@@ -240,7 +240,7 @@
                         </connections>
                     </button>
                     <button toolTip="remove a trigger note/cc/pgm change" imageHugsTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="43">
-                        <rect key="frame" x="6" y="159" width="11" height="11"/>
+                        <rect key="frame" x="6" y="183" width="11" height="11"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="11" id="N7I-K0-5x9"/>
                             <constraint firstAttribute="width" constant="11" id="xwU-r5-p4p"/>
@@ -254,7 +254,7 @@
                         </connections>
                     </button>
                     <button toolTip="remove a keystroke" imageHugsTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="44">
-                        <rect key="frame" x="383" y="159" width="11" height="11"/>
+                        <rect key="frame" x="383" y="183" width="11" height="11"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="11" id="eBe-Qo-auN"/>
                             <constraint firstAttribute="height" constant="11" id="we5-t5-121"/>
@@ -268,7 +268,7 @@
                         </connections>
                     </button>
                     <button toolTip="add a keystroke to be triggered" imageHugsTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="45">
-                        <rect key="frame" x="383" y="174" width="11" height="11"/>
+                        <rect key="frame" x="383" y="198" width="11" height="11"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="11" id="csF-bV-r2j"/>
                             <constraint firstAttribute="width" constant="11" id="nYr-jv-XwT"/>
@@ -329,6 +329,14 @@
                             <action selector="toggle:" target="279" id="285"/>
                         </connections>
                     </button>
+                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="q9z-kp-T22">
+                        <rect key="frame" x="22" y="24" width="358" height="11"/>
+                        <textFieldCell key="cell" lineBreakMode="clipping" selectable="YES" enabled="NO" allowsUndo="NO" id="ixg-60-k7T">
+                            <font key="font" size="9" name="Monaco"/>
+                            <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                            <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                        </textFieldCell>
+                    </textField>
                 </subviews>
                 <constraints>
                     <constraint firstItem="278" firstAttribute="leading" secondItem="277" secondAttribute="trailing" constant="4" id="1ez-nK-VpF"/>
@@ -336,11 +344,12 @@
                     <constraint firstItem="27" firstAttribute="leading" secondItem="39" secondAttribute="trailing" constant="2" id="6pG-4N-NoF"/>
                     <constraint firstItem="39" firstAttribute="centerY" secondItem="21" secondAttribute="centerY" id="71T-2H-MjP"/>
                     <constraint firstItem="278" firstAttribute="trailing" secondItem="27" secondAttribute="trailing" id="7NV-mV-6tl"/>
-                    <constraint firstItem="226" firstAttribute="top" secondItem="21" secondAttribute="bottom" constant="7" id="9cL-8X-ixN"/>
                     <constraint firstAttribute="bottom" secondItem="226" secondAttribute="bottom" constant="6" id="BTr-h6-BCT"/>
                     <constraint firstItem="43" firstAttribute="top" secondItem="41" secondAttribute="bottom" constant="3" id="IKw-mt-h2N"/>
                     <constraint firstItem="44" firstAttribute="top" secondItem="45" secondAttribute="bottom" constant="4" id="KuF-cn-ZE8"/>
+                    <constraint firstItem="q9z-kp-T22" firstAttribute="leading" secondItem="21" secondAttribute="leading" id="MXK-Qy-cc2"/>
                     <constraint firstItem="27" firstAttribute="bottom" secondItem="21" secondAttribute="bottom" id="RHN-gr-F0F"/>
+                    <constraint firstItem="q9z-kp-T22" firstAttribute="top" secondItem="21" secondAttribute="bottom" constant="8" symbolic="YES" id="VAw-0Z-B1b"/>
                     <constraint firstAttribute="trailing" secondItem="45" secondAttribute="trailing" constant="6" id="VNm-wT-DTC"/>
                     <constraint firstItem="277" firstAttribute="leading" secondItem="221" secondAttribute="trailing" constant="5" id="WTO-IJ-65w"/>
                     <constraint firstItem="21" firstAttribute="leading" secondItem="41" secondAttribute="trailing" constant="7" id="Wj6-0V-8pO"/>
@@ -356,6 +365,8 @@
                     <constraint firstItem="21" firstAttribute="top" secondItem="6" secondAttribute="top" constant="15" id="pBP-ay-lTV"/>
                     <constraint firstItem="43" firstAttribute="centerX" secondItem="41" secondAttribute="centerX" id="rdJ-Nq-SQp"/>
                     <constraint firstItem="226" firstAttribute="leading" secondItem="6" secondAttribute="leading" constant="24" id="tnJ-ct-bRa"/>
+                    <constraint firstItem="226" firstAttribute="top" secondItem="q9z-kp-T22" secondAttribute="bottom" constant="7" id="u7U-bm-Lls"/>
+                    <constraint firstItem="q9z-kp-T22" firstAttribute="trailing" secondItem="27" secondAttribute="trailing" id="w0d-lS-m8C"/>
                     <constraint firstItem="39" firstAttribute="leading" secondItem="21" secondAttribute="trailing" constant="3" id="xyd-67-FfX"/>
                     <constraint firstItem="277" firstAttribute="centerY" secondItem="221" secondAttribute="centerY" id="zlq-6A-Cq3"/>
                 </constraints>
@@ -363,7 +374,7 @@
             <connections>
                 <outlet property="delegate" destination="-2" id="17"/>
             </connections>
-            <point key="canvasLocation" x="14.5" y="175"/>
+            <point key="canvasLocation" x="14" y="187"/>
         </window>
         <arrayController objectClassName="StartNote" clearsFilterPredicateOnInsertion="NO" id="61" userLabel="StartNotes">
             <declaredKeys>
@@ -390,7 +401,11 @@
                 <binding destination="61" name="contentArray" keyPath="selection.endNotes" id="82"/>
             </connections>
         </arrayController>
-        <customObject id="80" userLabel="MyController" customClass="MyController"/>
+        <customObject id="80" userLabel="MyController" customClass="MyController">
+            <connections>
+                <outlet property="displayLabel" destination="q9z-kp-T22" id="8ko-If-f3S"/>
+            </connections>
+        </customObject>
         <objectController id="83" userLabel="ControllerAlias">
             <declaredKeys>
                 <string>startNotes</string>
@@ -576,7 +591,7 @@ DOWN</string>
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
                             <textView importsGraphics="NO" verticallyResizable="YES" usesFontPanel="YES" findStyle="panel" continuousSpellChecking="YES" usesRuler="YES" spellingCorrection="YES" smartInsertDelete="YES" id="289">
-                                <rect key="frame" x="0.0" y="-25.517578125" width="208" height="1020"/>
+                                <rect key="frame" x="0.0" y="-25.03515625" width="208" height="1020"/>
                                 <autoresizingMask key="autoresizingMask" heightSizable="YES"/>
                                 <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
                                 <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
@@ -621,7 +636,7 @@ If you would like to use midiStroke to simulate a typewriter, look in the prefer
                         <rect key="frame" x="-100" y="-100" width="87" height="18"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </scroller>
-                    <scroller key="verticalScroller" wantsLayer="YES" verticalHuggingPriority="750" doubleValue="1.9359168502202645e-05" horizontal="NO" id="371">
+                    <scroller key="verticalScroller" wantsLayer="YES" verticalHuggingPriority="750" doubleValue="3.8718337004405289e-05" horizontal="NO" id="371">
                         <rect key="frame" x="208" y="1" width="16" height="112"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </scroller>
