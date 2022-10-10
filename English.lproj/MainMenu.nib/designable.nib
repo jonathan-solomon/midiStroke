@@ -419,7 +419,7 @@
                 <menuItem title="midiStroke" id="179">
                     <menu key="submenu" title="midiStroke" systemMenu="apple" id="180">
                         <items>
-                            <menuItem title="about midiStroke" id="185">
+                            <menuItem title="About midiStroke" id="185">
                                 <modifierMask key="keyEquivalentModifierMask"/>
                                 <connections>
                                     <action selector="orderFrontStandardAboutPanel:" target="-2" id="216"/>
@@ -428,18 +428,18 @@
                             <menuItem isSeparatorItem="YES" id="186">
                                 <modifierMask key="keyEquivalentModifierMask" command="YES"/>
                             </menuItem>
-                            <menuItem title="hide midiStroke" keyEquivalent="h" id="187">
+                            <menuItem title="Hide midiStroke" keyEquivalent="h" id="187">
                                 <connections>
                                     <action selector="hide:" target="-2" id="217"/>
                                 </connections>
                             </menuItem>
-                            <menuItem title="hide others" keyEquivalent="h" id="182">
+                            <menuItem title="Hide Others" keyEquivalent="h" id="182">
                                 <modifierMask key="keyEquivalentModifierMask" option="YES" command="YES"/>
                                 <connections>
                                     <action selector="hideOtherApplications:" target="-2" id="218"/>
                                 </connections>
                             </menuItem>
-                            <menuItem title="show all" id="184">
+                            <menuItem title="Show all" id="184">
                                 <connections>
                                     <action selector="unhideAllApplications:" target="-2" id="219"/>
                                 </connections>
@@ -447,7 +447,7 @@
                             <menuItem isSeparatorItem="YES" id="183">
                                 <modifierMask key="keyEquivalentModifierMask" command="YES"/>
                             </menuItem>
-                            <menuItem title="quit midiStroke" keyEquivalent="q" id="181">
+                            <menuItem title="Quit midiStroke" keyEquivalent="q" id="181">
                                 <connections>
                                     <action selector="terminate:" target="-2" id="220"/>
                                 </connections>
@@ -455,8 +455,20 @@
                         </items>
                     </menu>
                 </menuItem>
-                <menuItem title="window" id="188">
-                    <menu key="submenu" title="window" systemMenu="window" id="189">
+                <menuItem title="File" id="XP4-bK-tbb">
+                    <modifierMask key="keyEquivalentModifierMask"/>
+                    <menu key="submenu" title="File" id="6sG-0A-5rH">
+                        <items>
+                            <menuItem title="Save" keyEquivalent="s" id="t0W-oQ-s8S">
+                                <connections>
+                                    <action selector="save:" target="80" id="9RP-hP-5Rs"/>
+                                </connections>
+                            </menuItem>
+                        </items>
+                    </menu>
+                </menuItem>
+                <menuItem title="Window" id="188" userLabel="Window">
+                    <menu key="submenu" title="Window" systemMenu="window" id="189">
                         <items>
                             <menuItem title="Minimize" keyEquivalent="m" id="193">
                                 <connections>

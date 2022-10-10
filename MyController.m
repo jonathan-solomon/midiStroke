@@ -94,6 +94,9 @@
     [NSKeyedArchiver archiveRootObject: rootObject toFile: path];
 }
 
+- (IBAction)save:(id)sender {
+    [self saveDataToDisk];
+}
 
 // added for "Saving Application Data" tutorial
 // http://cocoadevcentral.com/articles/000084.php
