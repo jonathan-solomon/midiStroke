@@ -135,8 +135,6 @@
                             int theLetter = [self keyCodeForKeyString:charString];
 
                             CGEventFlags flags = 0;
-                            CGEventRef down = CGEventCreateKeyboardEvent( NULL, (CGKeyCode)theLetter, true);
-                            CGEventRef up = CGEventCreateKeyboardEvent( NULL, (CGKeyCode)theLetter, false);
                             
                             if ([[eprop objectForKey: @"apple"] intValue] == 1) {
                                 flags = flags | kCGEventFlagMaskCommand;
@@ -151,13 +149,19 @@
                                 flags = flags | kCGEventFlagMaskControl;
                             }
                             
-                            CGEventSetFlags(down, (flags | CGEventGetFlags(down)));
-                            CGEventPost(kCGHIDEventTap, down);
-                            CFRelease(down);
+                            if (!(packet->data[0]>>4 == 0x08)) {
+                                CGEventRef down = CGEventCreateKeyboardEvent( NULL, (CGKeyCode)theLetter, true);
+                                CGEventSetFlags(down, (flags | CGEventGetFlags(down)));
+                                CGEventPost(kCGHIDEventTap, down);
+                                CFRelease(down);
+                            }
                             
-                            CGEventSetFlags(up, (flags | CGEventGetFlags(up)));
-                            CGEventPost(kCGHIDEventTap, up);
-                            CFRelease(up);
+                            if (!(packet->data[0]>>4 == 0x09)) {
+                                CGEventRef up = CGEventCreateKeyboardEvent( NULL, (CGKeyCode)theLetter, false);
+                                CGEventSetFlags(up, (flags | CGEventGetFlags(up)));
+                                CGEventPost(kCGHIDEventTap, up);
+                                CFRelease(up);
+                            }
                         });
 					}
 				}

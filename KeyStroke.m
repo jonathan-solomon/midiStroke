@@ -29,7 +29,7 @@ static void readProc(const MIDIPacketList *pktlist, void *refCon, void *connRefC
 	if ((packetStart) == 0xfe)    { type = @"as"; }		// activeSensing
 	if ((packetStart>>4) == 0x0c) { type = @"pgm"; }	// program change
 		
-    if (([type  isEqual: @"nOn"] && packet->data[2] != 0) || [type  isEqual: @"cc"] || [type  isEqual: @"pgm"]) {
+    if (([type isEqual: @"nOn"] && packet->data[2] != 0) || ([type isEqual: @"nOff"]) || [type isEqual: @"cc"] || [type  isEqual: @"pgm"]) {
 		[convert midiConvert:(MIDIPacket *)packet endpoint:(MIDIPortRef *)connRefCon];
 	}
 	
