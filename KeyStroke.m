@@ -29,7 +29,7 @@ static void readProc(const MIDIPacketList *pktlist, void *refCon, void *connRefC
 	if ((packetStart) == 0xfe)    { type = @"as"; }		// activeSensing
 	if ((packetStart>>4) == 0x0c) { type = @"pgm"; }	// program change
 		
-	if ((type == @"nOn" && packet->data[2] != 0) || type == @"cc" || type == @"pgm") {
+    if (([type  isEqual: @"nOn"] && packet->data[2] != 0) || [type  isEqual: @"cc"] || [type  isEqual: @"pgm"]) {
 		[convert midiConvert:(MIDIPacket *)packet endpoint:(MIDIPortRef *)connRefCon];
 	}
 	
@@ -73,7 +73,7 @@ static void readProc(const MIDIPacketList *pktlist, void *refCon, void *connRefC
 - (void)setupSourcePopup
 {
     CFArrayRef sourceArray;
-    int numSources, i;
+    size_t numSources, i;
 	
 	[sourcePopup removeAllItems];
 	sourceArray = [self getSourcesArray];
@@ -85,7 +85,7 @@ static void readProc(const MIDIPacketList *pktlist, void *refCon, void *connRefC
 		CFStringRef pModel;
         MIDIEndpointRef source;
 		
-        source = (MIDIEndpointRef)CFArrayGetValueAtIndex(sourceArray, i);
+        source = (MIDIEndpointRef)(size_t)CFArrayGetValueAtIndex(sourceArray, i);
 		
 		NSMutableString *mNum = [NSMutableString string];
 
@@ -106,11 +106,11 @@ static void readProc(const MIDIPacketList *pktlist, void *refCon, void *connRefC
 - (void) loadDefaultSource {
 	NSString *src = [defaults stringForKey:@"MIDI Source"];
 	if(src != nil) {
-		int index = [sourcePopup indexOfItemWithTitle:src];
+		size_t index = [sourcePopup indexOfItemWithTitle:src];
 		if (index != -1) {														// if the source is found...
 			if(index != 0) {													// ..and not equal to None...
 				chosenInput1 = MIDIGetSource(index - 1);						// get the chosen source and store the endpoint ref
-				MIDIPortConnectSource(inPort, chosenInput1, chosenInput1);
+				MIDIPortConnectSource(inPort, chosenInput1, @(chosenInput1));
 				connected = TRUE;
 				[sourcePopup selectItemWithTitle:src];
 			}
@@ -130,7 +130,7 @@ static void readProc(const MIDIPacketList *pktlist, void *refCon, void *connRefC
 			MIDIPortDisconnectSource(inPort, chosenInput1);		// ... disconnect it
 		}
         chosenInput1 = MIDIGetSource([sender indexOfSelectedItem]-1);	// get the chosen source and store the endpoint ref
-        MIDIPortConnectSource(inPort, chosenInput1, chosenInput1);		// MIDIPortConnectSource(inPort, src, refCon);
+        MIDIPortConnectSource(inPort, chosenInput1, @(chosenInput1));		// MIDIPortConnectSource(inPort, src, refCon);
 		connected = TRUE;
 		[defaults setObject:[sender titleOfSelectedItem] forKey:@"MIDI Source"];
 	}else{																// if the user has selected "None" from the menu...
