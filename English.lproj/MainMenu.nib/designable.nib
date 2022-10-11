@@ -39,13 +39,24 @@
                                                 <color key="backgroundColor" white="0.33333299" alpha="1" colorSpace="calibratedWhite"/>
                                             </tableHeaderCell>
                                             <textFieldCell key="dataCell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" alignment="left" id="360">
+                                                <numberFormatter key="formatter" formatterBehavior="10_0" positiveFormat="0" negativeFormat="-0" hasThousandSeparators="NO" thousandSeparator="," id="6Hp-hL-Cf6">
+                                                    <attributedString key="attributedStringForZero">
+                                                        <fragment content="0"/>
+                                                    </attributedString>
+                                                    <decimal key="minimum" value="0"/>
+                                                    <real key="maximum" value="256"/>
+                                                </numberFormatter>
                                                 <font key="font" size="9" name="Monaco"/>
                                                 <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                             </textFieldCell>
                                             <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
                                             <connections>
-                                                <binding destination="61" name="value" keyPath="arrangedObjects.properties.number" id="68"/>
+                                                <binding destination="61" name="value" keyPath="arrangedObjects.properties.number" id="b2f-sQ-Rs0">
+                                                    <dictionary key="options">
+                                                        <bool key="NSCreatesSortDescriptor" value="NO"/>
+                                                    </dictionary>
+                                                </binding>
                                             </connections>
                                         </tableColumn>
                                         <tableColumn width="28" minWidth="20" maxWidth="1000" id="24">
@@ -67,7 +78,11 @@
                                             </textFieldCell>
                                             <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
                                             <connections>
-                                                <binding destination="61" name="value" keyPath="arrangedObjects.properties.channel" id="69"/>
+                                                <binding destination="61" name="value" keyPath="arrangedObjects.properties.channel" id="vnR-pq-Omr">
+                                                    <dictionary key="options">
+                                                        <bool key="NSCreatesSortDescriptor" value="NO"/>
+                                                    </dictionary>
+                                                </binding>
                                             </connections>
                                         </tableColumn>
                                         <tableColumn width="36" minWidth="4" maxWidth="1000" id="293">
@@ -89,7 +104,11 @@
                                             </textFieldCell>
                                             <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
                                             <connections>
-                                                <binding destination="61" name="value" keyPath="arrangedObjects.properties.ccValue" id="298"/>
+                                                <binding destination="61" name="value" keyPath="arrangedObjects.properties.ccValue" id="IMD-05-LLc">
+                                                    <dictionary key="options">
+                                                        <bool key="NSCreatesSortDescriptor" value="NO"/>
+                                                    </dictionary>
+                                                </binding>
                                             </connections>
                                         </tableColumn>
                                     </tableColumns>
@@ -136,7 +155,11 @@
                                             </textFieldCell>
                                             <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
                                             <connections>
-                                                <binding destination="62" name="value" keyPath="arrangedObjects.properties.keystroke" id="71"/>
+                                                <binding destination="62" name="value" keyPath="arrangedObjects.properties.keystroke" id="VH2-U8-8Mi">
+                                                    <dictionary key="options">
+                                                        <bool key="NSCreatesSortDescriptor" value="NO"/>
+                                                    </dictionary>
+                                                </binding>
                                             </connections>
                                         </tableColumn>
                                         <tableColumn width="26" minWidth="20" maxWidth="1000" id="36">
@@ -150,7 +173,11 @@
                                             </buttonCell>
                                             <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
                                             <connections>
-                                                <binding destination="62" name="value" keyPath="arrangedObjects.properties.apple" id="72"/>
+                                                <binding destination="62" name="value" keyPath="arrangedObjects.properties.apple" id="jzQ-B3-aWN">
+                                                    <dictionary key="options">
+                                                        <bool key="NSCreatesSortDescriptor" value="NO"/>
+                                                    </dictionary>
+                                                </binding>
                                             </connections>
                                         </tableColumn>
                                         <tableColumn width="26" minWidth="20" maxWidth="1000" id="34">
@@ -164,7 +191,11 @@
                                             </buttonCell>
                                             <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
                                             <connections>
-                                                <binding destination="62" name="value" keyPath="arrangedObjects.properties.shift" id="73"/>
+                                                <binding destination="62" name="value" keyPath="arrangedObjects.properties.shift" id="Nfm-yI-bT4">
+                                                    <dictionary key="options">
+                                                        <bool key="NSCreatesSortDescriptor" value="NO"/>
+                                                    </dictionary>
+                                                </binding>
                                             </connections>
                                         </tableColumn>
                                         <tableColumn width="26" minWidth="20" maxWidth="1000" id="32">
@@ -178,7 +209,11 @@
                                             </buttonCell>
                                             <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
                                             <connections>
-                                                <binding destination="62" name="value" keyPath="arrangedObjects.properties.option" id="74"/>
+                                                <binding destination="62" name="value" keyPath="arrangedObjects.properties.option" id="FTN-Xc-IZ8">
+                                                    <dictionary key="options">
+                                                        <bool key="NSCreatesSortDescriptor" value="NO"/>
+                                                    </dictionary>
+                                                </binding>
                                             </connections>
                                         </tableColumn>
                                         <tableColumn width="25" minWidth="20" maxWidth="1000" id="30">
@@ -192,7 +227,11 @@
                                             </buttonCell>
                                             <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
                                             <connections>
-                                                <binding destination="62" name="value" keyPath="arrangedObjects.properties.control" id="75"/>
+                                                <binding destination="62" name="value" keyPath="arrangedObjects.properties.control" id="0ba-Y2-cre">
+                                                    <dictionary key="options">
+                                                        <bool key="NSCreatesSortDescriptor" value="NO"/>
+                                                    </dictionary>
+                                                </binding>
                                             </connections>
                                         </tableColumn>
                                     </tableColumns>
@@ -492,7 +531,7 @@
                     </menu>
                 </menuItem>
             </items>
-            <point key="canvasLocation" x="-114" y="348"/>
+            <point key="canvasLocation" x="-36" y="-36"/>
         </menu>
         <customObject id="228" userLabel="KeyStroke" customClass="KeyStroke">
             <connections>
@@ -603,7 +642,7 @@ DOWN</string>
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
                             <textView importsGraphics="NO" verticallyResizable="YES" usesFontPanel="YES" findStyle="panel" continuousSpellChecking="YES" usesRuler="YES" spellingCorrection="YES" smartInsertDelete="YES" id="289">
-                                <rect key="frame" x="0.0" y="-25.03515625" width="208" height="1020"/>
+                                <rect key="frame" x="0.0" y="-24.552734375" width="208" height="1020"/>
                                 <autoresizingMask key="autoresizingMask" heightSizable="YES"/>
                                 <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
                                 <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
@@ -648,7 +687,7 @@ If you would like to use midiStroke to simulate a typewriter, look in the prefer
                         <rect key="frame" x="-100" y="-100" width="87" height="18"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </scroller>
-                    <scroller key="verticalScroller" wantsLayer="YES" verticalHuggingPriority="750" doubleValue="3.8718337004405289e-05" horizontal="NO" id="371">
+                    <scroller key="verticalScroller" wantsLayer="YES" verticalHuggingPriority="750" doubleValue="5.8077505506607927e-05" horizontal="NO" id="371">
                         <rect key="frame" x="208" y="1" width="16" height="112"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </scroller>
