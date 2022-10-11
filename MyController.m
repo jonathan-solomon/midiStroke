@@ -161,10 +161,18 @@
 		NSMutableArray *se = [sn endNotes];
 		if ([[sp objectForKey:@"number"] intValue] == packet->data[1]) {	// if note / pgm / or cc number is the same as the received midi message
 			if ([[sp objectForKey:@"channel"] intValue] == channel || [[sp objectForKey:@"channel"] intValue] ==0) {	// if channel is the same or we're looking for all channels
-                BOOL noteDown = (type == noteOn || (type == cc && packet->data[2] == [[sp objectForKey:@"ccValue"] intValue]));
-                BOOL noteUp = (type == noteOff || (type == cc && packet->data[2] == 0));
+                int ccValue = [[sp objectForKey:@"ccValue"] intValue];
+                BOOL noteDown;
+                BOOL noteUp;
+                if (ccValue) {
+                    noteDown = type == cc && packet->data[2] == ccValue;
+                    noteUp = type == cc && packet->data[2] == 0 && ccValue != 0;
+                } else {
+                    noteDown = type == noteOn;
+                    noteUp = type == noteOff;
+                }
                 
-				if (noteDown || noteUp) {
+                if (noteDown || noteUp) {
 					for (j=0; j<[se count]; j++) {
 						dispatch_async(dispatch_get_main_queue(), ^{
                             EndNote *en = [se objectAtIndex:j];
@@ -189,6 +197,7 @@
                             }
                             
                             if (noteDown) {
+                                printf("down\n");
                                 CGEventRef down = CGEventCreateKeyboardEvent( NULL, (CGKeyCode)theLetter, true);
                                 CGEventSetFlags(down, (flags | CGEventGetFlags(down)));
                                 CGEventPost(kCGHIDEventTap, down);
@@ -196,6 +205,7 @@
                             }
                             
                             if (noteUp) {
+                                printf("up\n");
                                 CGEventRef up = CGEventCreateKeyboardEvent( NULL, (CGKeyCode)theLetter, false);
                                 CGEventSetFlags(up, (flags | CGEventGetFlags(up)));
                                 CGEventPost(kCGHIDEventTap, up);
