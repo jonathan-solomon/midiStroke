@@ -1,0 +1,707 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="21225" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES">
+    <dependencies>
+        <deployment identifier="macosx"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="21225"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <customObject id="-2" userLabel="File's Owner" customClass="NSApplication"/>
+        <customObject id="-1" userLabel="First Responder" customClass="FirstResponder"/>
+        <customObject id="-3" userLabel="Application" customClass="NSObject"/>
+        <window title="midiStroke" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" releasedWhenClosed="NO" frameAutosaveName="msWin" animationBehavior="default" id="5" userLabel="Window">
+            <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES"/>
+            <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" bottomStrut="YES"/>
+            <rect key="contentRect" x="54" y="716" width="400" height="224"/>
+            <rect key="screenRect" x="0.0" y="0.0" width="1728" height="1079"/>
+            <value key="minSize" type="size" width="400" height="200"/>
+            <view key="contentView" id="6">
+                <rect key="frame" x="0.0" y="0.0" width="400" height="224"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <scrollView toolTip="enter the number and channel for messages. only enter value for cc messages." horizontalLineScroll="14" horizontalPageScroll="0.0" verticalLineScroll="14" verticalPageScroll="0.0" hasHorizontalScroller="NO" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="21">
+                        <rect key="frame" x="24" y="43" width="170" height="166"/>
+                        <clipView key="contentView" drawsBackground="NO" id="eJq-Ad-8aR">
+                            <rect key="frame" x="1" y="1" width="168" height="164"/>
+                            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                            <subviews>
+                                <tableView focusRingType="none" verticalHuggingPriority="750" allowsExpansionToolTips="YES" alternatingRowBackgroundColors="YES" multipleSelection="NO" autosaveName="mStartNotes" rowHeight="12" headerView="p1z-U4-NKb" id="22">
+                                    <rect key="frame" x="0.0" y="0.0" width="168" height="136"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                    <size key="intercellSpacing" width="3" height="2"/>
+                                    <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                    <tableViewGridLines key="gridStyleMask" vertical="YES"/>
+                                    <color key="gridColor" red="0.71284681999999999" green="0.71575754999999996" blue="0.72448981000000001" alpha="1" colorSpace="calibratedRGB"/>
+                                    <tableColumns>
+                                        <tableColumn width="34" minWidth="20" maxWidth="1000" id="23">
+                                            <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" alignment="left" title=" num">
+                                                <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
+                                                <color key="backgroundColor" white="0.33333299" alpha="1" colorSpace="calibratedWhite"/>
+                                            </tableHeaderCell>
+                                            <textFieldCell key="dataCell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" alignment="left" id="360">
+                                                <numberFormatter key="formatter" formatterBehavior="10_0" positiveFormat="0" negativeFormat="-0" hasThousandSeparators="NO" thousandSeparator="," id="6Hp-hL-Cf6">
+                                                    <attributedString key="attributedStringForZero">
+                                                        <fragment content="0"/>
+                                                    </attributedString>
+                                                    <decimal key="minimum" value="0"/>
+                                                    <real key="maximum" value="256"/>
+                                                </numberFormatter>
+                                                <font key="font" size="9" name="Monaco"/>
+                                                <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            </textFieldCell>
+                                            <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
+                                            <connections>
+                                                <binding destination="61" name="value" keyPath="arrangedObjects.properties.number" id="b2f-sQ-Rs0">
+                                                    <dictionary key="options">
+                                                        <bool key="NSCreatesSortDescriptor" value="NO"/>
+                                                    </dictionary>
+                                                </binding>
+                                            </connections>
+                                        </tableColumn>
+                                        <tableColumn width="28" minWidth="20" maxWidth="1000" id="24">
+                                            <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" alignment="left" title="chn">
+                                                <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
+                                                <color key="backgroundColor" white="0.33333299" alpha="1" colorSpace="calibratedWhite"/>
+                                            </tableHeaderCell>
+                                            <textFieldCell key="dataCell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" alignment="left" id="361">
+                                                <numberFormatter key="formatter" formatterBehavior="10_0" positiveFormat="0" negativeFormat="-0" hasThousandSeparators="NO" thousandSeparator="," id="25">
+                                                    <attributedString key="attributedStringForZero">
+                                                        <fragment content="0"/>
+                                                    </attributedString>
+                                                    <decimal key="minimum" value="0"/>
+                                                    <decimal key="maximum" value="16"/>
+                                                </numberFormatter>
+                                                <font key="font" size="9" name="Monaco"/>
+                                                <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            </textFieldCell>
+                                            <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
+                                            <connections>
+                                                <binding destination="61" name="value" keyPath="arrangedObjects.properties.channel" id="vnR-pq-Omr">
+                                                    <dictionary key="options">
+                                                        <bool key="NSCreatesSortDescriptor" value="NO"/>
+                                                    </dictionary>
+                                                </binding>
+                                            </connections>
+                                        </tableColumn>
+                                        <tableColumn width="36" minWidth="4" maxWidth="1000" id="293">
+                                            <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" alignment="left" title="value">
+                                                <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
+                                                <color key="backgroundColor" name="headerColor" catalog="System" colorSpace="catalog"/>
+                                            </tableHeaderCell>
+                                            <textFieldCell key="dataCell" lineBreakMode="truncatingTail" selectable="YES" editable="YES" alignment="left" id="362">
+                                                <numberFormatter key="formatter" formatterBehavior="10_0" positiveFormat="0" negativeFormat="-0" hasThousandSeparators="NO" thousandSeparator="," id="294">
+                                                    <attributedString key="attributedStringForZero">
+                                                        <fragment content="0"/>
+                                                    </attributedString>
+                                                    <decimal key="minimum" value="-1"/>
+                                                    <decimal key="maximum" value="128"/>
+                                                </numberFormatter>
+                                                <font key="font" size="9" name="Monaco"/>
+                                                <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                                                <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                            </textFieldCell>
+                                            <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
+                                            <connections>
+                                                <binding destination="61" name="value" keyPath="arrangedObjects.properties.ccValue" id="IMD-05-LLc">
+                                                    <dictionary key="options">
+                                                        <bool key="NSCreatesSortDescriptor" value="NO"/>
+                                                    </dictionary>
+                                                </binding>
+                                            </connections>
+                                        </tableColumn>
+                                    </tableColumns>
+                                </tableView>
+                            </subviews>
+                            <nil key="backgroundColor"/>
+                        </clipView>
+                        <scroller key="horizontalScroller" hidden="YES" wantsLayer="YES" verticalHuggingPriority="750" controlSize="small" horizontal="YES" id="364">
+                            <rect key="frame" x="-100" y="-100" width="112" height="15"/>
+                            <autoresizingMask key="autoresizingMask"/>
+                        </scroller>
+                        <scroller key="verticalScroller" wantsLayer="YES" verticalHuggingPriority="750" controlSize="small" horizontal="NO" id="365">
+                            <rect key="frame" x="155" y="29" width="14" height="136"/>
+                            <autoresizingMask key="autoresizingMask"/>
+                        </scroller>
+                        <tableHeaderView key="headerView" wantsLayer="YES" id="p1z-U4-NKb">
+                            <rect key="frame" x="0.0" y="0.0" width="168" height="28"/>
+                            <autoresizingMask key="autoresizingMask"/>
+                        </tableHeaderView>
+                    </scrollView>
+                    <scrollView toolTip="specify keystrokes to be triggered along with any modifiers" horizontalLineScroll="14" horizontalPageScroll="0.0" verticalLineScroll="14" verticalPageScroll="0.0" hasHorizontalScroller="NO" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="27">
+                        <rect key="frame" x="207" y="43" width="171" height="166"/>
+                        <clipView key="contentView" drawsBackground="NO" id="mvq-oa-Mjt">
+                            <rect key="frame" x="1" y="1" width="169" height="164"/>
+                            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                            <subviews>
+                                <tableView verticalHuggingPriority="750" allowsExpansionToolTips="YES" alternatingRowBackgroundColors="YES" columnResizing="NO" multipleSelection="NO" autosaveColumns="NO" rowHeight="12" headerView="4sh-Bh-o9n" id="28">
+                                    <rect key="frame" x="0.0" y="0.0" width="169" height="136"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                    <size key="intercellSpacing" width="3" height="2"/>
+                                    <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                    <tableViewGridLines key="gridStyleMask" vertical="YES"/>
+                                    <color key="gridColor" red="0.76020407999999995" green="0.76020407999999995" blue="0.76020407999999995" alpha="1" colorSpace="calibratedRGB"/>
+                                    <tableColumns>
+                                        <tableColumn width="42" minWidth="20" maxWidth="1000" id="29">
+                                            <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" alignment="left" title="key">
+                                                <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
+                                                <color key="backgroundColor" white="0.33333299" alpha="1" colorSpace="calibratedWhite"/>
+                                            </tableHeaderCell>
+                                            <textFieldCell key="dataCell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" alignment="left" id="363">
+                                                <font key="font" size="9" name="Monaco"/>
+                                                <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            </textFieldCell>
+                                            <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
+                                            <connections>
+                                                <binding destination="62" name="value" keyPath="arrangedObjects.properties.keystroke" id="VH2-U8-8Mi">
+                                                    <dictionary key="options">
+                                                        <bool key="NSCreatesSortDescriptor" value="NO"/>
+                                                    </dictionary>
+                                                </binding>
+                                            </connections>
+                                        </tableColumn>
+                                        <tableColumn width="26" minWidth="20" maxWidth="1000" id="36">
+                                            <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" alignment="left" title="">
+                                                <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
+                                                <color key="backgroundColor" white="0.33333299" alpha="1" colorSpace="calibratedWhite"/>
+                                            </tableHeaderCell>
+                                            <buttonCell key="dataCell" type="square" bezelStyle="shadowlessSquare" image="uncheckedBtnSmall" imagePosition="above" alignment="center" alternateImage="checkedBtnSmall" inset="2" id="37">
+                                                <behavior key="behavior" pushIn="YES" changeContents="YES" lightByContents="YES"/>
+                                                <font key="font" metaFont="cellTitle"/>
+                                            </buttonCell>
+                                            <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
+                                            <connections>
+                                                <binding destination="62" name="value" keyPath="arrangedObjects.properties.apple" id="jzQ-B3-aWN">
+                                                    <dictionary key="options">
+                                                        <bool key="NSCreatesSortDescriptor" value="NO"/>
+                                                    </dictionary>
+                                                </binding>
+                                            </connections>
+                                        </tableColumn>
+                                        <tableColumn width="26" minWidth="20" maxWidth="1000" id="34">
+                                            <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" alignment="left" title="⇧">
+                                                <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
+                                                <color key="backgroundColor" white="0.33333299" alpha="1" colorSpace="calibratedWhite"/>
+                                            </tableHeaderCell>
+                                            <buttonCell key="dataCell" type="square" bezelStyle="shadowlessSquare" image="uncheckedBtnSmall" imagePosition="above" alignment="center" alternateImage="checkedBtnSmall" inset="2" id="35">
+                                                <behavior key="behavior" pushIn="YES" changeContents="YES" lightByContents="YES"/>
+                                                <font key="font" metaFont="cellTitle"/>
+                                            </buttonCell>
+                                            <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
+                                            <connections>
+                                                <binding destination="62" name="value" keyPath="arrangedObjects.properties.shift" id="Nfm-yI-bT4">
+                                                    <dictionary key="options">
+                                                        <bool key="NSCreatesSortDescriptor" value="NO"/>
+                                                    </dictionary>
+                                                </binding>
+                                            </connections>
+                                        </tableColumn>
+                                        <tableColumn width="26" minWidth="20" maxWidth="1000" id="32">
+                                            <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" alignment="left" title="⌥">
+                                                <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
+                                                <color key="backgroundColor" white="0.33333299" alpha="1" colorSpace="calibratedWhite"/>
+                                            </tableHeaderCell>
+                                            <buttonCell key="dataCell" type="square" bezelStyle="shadowlessSquare" image="uncheckedBtnSmall" imagePosition="above" alignment="center" alternateImage="checkedBtnSmall" inset="2" id="33">
+                                                <behavior key="behavior" pushIn="YES" changeContents="YES" lightByContents="YES"/>
+                                                <font key="font" metaFont="cellTitle"/>
+                                            </buttonCell>
+                                            <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
+                                            <connections>
+                                                <binding destination="62" name="value" keyPath="arrangedObjects.properties.option" id="FTN-Xc-IZ8">
+                                                    <dictionary key="options">
+                                                        <bool key="NSCreatesSortDescriptor" value="NO"/>
+                                                    </dictionary>
+                                                </binding>
+                                            </connections>
+                                        </tableColumn>
+                                        <tableColumn width="25" minWidth="20" maxWidth="1000" id="30">
+                                            <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" alignment="left" title="^">
+                                                <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
+                                                <color key="backgroundColor" white="0.33333299" alpha="1" colorSpace="calibratedWhite"/>
+                                            </tableHeaderCell>
+                                            <buttonCell key="dataCell" type="square" bezelStyle="shadowlessSquare" image="uncheckedBtnSmall" imagePosition="above" alignment="center" alternateImage="checkedBtnSmall" inset="2" id="31">
+                                                <behavior key="behavior" pushIn="YES" changeContents="YES" lightByContents="YES"/>
+                                                <font key="font" metaFont="cellTitle"/>
+                                            </buttonCell>
+                                            <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
+                                            <connections>
+                                                <binding destination="62" name="value" keyPath="arrangedObjects.properties.control" id="0ba-Y2-cre">
+                                                    <dictionary key="options">
+                                                        <bool key="NSCreatesSortDescriptor" value="NO"/>
+                                                    </dictionary>
+                                                </binding>
+                                            </connections>
+                                        </tableColumn>
+                                    </tableColumns>
+                                </tableView>
+                            </subviews>
+                            <nil key="backgroundColor"/>
+                        </clipView>
+                        <scroller key="horizontalScroller" hidden="YES" wantsLayer="YES" verticalHuggingPriority="750" controlSize="small" horizontal="YES" id="366">
+                            <rect key="frame" x="-100" y="-100" width="112" height="15"/>
+                            <autoresizingMask key="autoresizingMask"/>
+                        </scroller>
+                        <scroller key="verticalScroller" wantsLayer="YES" verticalHuggingPriority="750" controlSize="small" horizontal="NO" id="367">
+                            <rect key="frame" x="156" y="29" width="14" height="136"/>
+                            <autoresizingMask key="autoresizingMask"/>
+                        </scroller>
+                        <tableHeaderView key="headerView" wantsLayer="YES" id="4sh-Bh-o9n">
+                            <rect key="frame" x="0.0" y="0.0" width="169" height="28"/>
+                            <autoresizingMask key="autoresizingMask"/>
+                        </tableHeaderView>
+                    </scrollView>
+                    <textField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="39">
+                        <rect key="frame" x="195" y="120" width="12" height="13"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="8" id="73B-Fc-O9X"/>
+                            <constraint firstAttribute="height" constant="13" id="MX1-Wq-ZWw"/>
+                        </constraints>
+                        <textFieldCell key="cell" controlSize="small" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" state="on" alignment="left" title="&gt;" id="345">
+                            <font key="font" metaFont="label"/>
+                            <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                            <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                        </textFieldCell>
+                    </textField>
+                    <button toolTip="add a trigger note/cc/pgm change" translatesAutoresizingMaskIntoConstraints="NO" id="41">
+                        <rect key="frame" x="6" y="197" width="11" height="11"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="11" id="BmA-sg-U3F"/>
+                            <constraint firstAttribute="height" constant="11" id="a7t-Hn-TVA"/>
+                        </constraints>
+                        <buttonCell key="cell" type="square" bezelStyle="shadowlessSquare" image="uncheckedPlusSmall" imagePosition="only" alignment="center" alternateImage="checkedPlusSmall" id="347">
+                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                            <font key="font" metaFont="fixedUser"/>
+                        </buttonCell>
+                        <connections>
+                            <action selector="add:" target="61" id="63"/>
+                        </connections>
+                    </button>
+                    <button toolTip="remove a trigger note/cc/pgm change" imageHugsTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="43">
+                        <rect key="frame" x="6" y="183" width="11" height="11"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="11" id="N7I-K0-5x9"/>
+                            <constraint firstAttribute="width" constant="11" id="xwU-r5-p4p"/>
+                        </constraints>
+                        <buttonCell key="cell" type="square" bezelStyle="shadowlessSquare" image="uncheckedMinusSmall" imagePosition="only" alignment="center" alternateImage="checkedMinusSmall" id="349">
+                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                            <font key="font" metaFont="fixedUser"/>
+                        </buttonCell>
+                        <connections>
+                            <action selector="remove:" target="61" id="64"/>
+                        </connections>
+                    </button>
+                    <button toolTip="remove a keystroke" imageHugsTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="44">
+                        <rect key="frame" x="383" y="183" width="11" height="11"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="11" id="eBe-Qo-auN"/>
+                            <constraint firstAttribute="height" constant="11" id="we5-t5-121"/>
+                        </constraints>
+                        <buttonCell key="cell" type="square" bezelStyle="shadowlessSquare" image="uncheckedMinusSmall" imagePosition="only" alignment="center" alternateImage="checkedMinusSmall" id="350">
+                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                            <font key="font" metaFont="fixedUser"/>
+                        </buttonCell>
+                        <connections>
+                            <action selector="remove:" target="62" id="66"/>
+                        </connections>
+                    </button>
+                    <button toolTip="add a keystroke to be triggered" imageHugsTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="45">
+                        <rect key="frame" x="383" y="198" width="11" height="11"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="11" id="csF-bV-r2j"/>
+                            <constraint firstAttribute="width" constant="11" id="nYr-jv-XwT"/>
+                        </constraints>
+                        <buttonCell key="cell" type="square" bezelStyle="shadowlessSquare" image="uncheckedPlusSmall" imagePosition="only" alignment="center" alternateImage="checkedPlusSmall" id="351">
+                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                            <font key="font" metaFont="fixedUser"/>
+                        </buttonCell>
+                        <connections>
+                            <action selector="add:" target="62" id="65"/>
+                        </connections>
+                    </button>
+                    <popUpButton toolTip="Select a midi source from this menu for triggering" horizontalHuggingPriority="249" verticalHuggingPriority="750" imageHugsTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="221">
+                        <rect key="frame" x="49" y="3" width="226" height="16"/>
+                        <popUpButtonCell key="cell" type="push" bezelStyle="rounded" alignment="left" controlSize="mini" lineBreakMode="truncatingTail" state="on" borderStyle="borderAndBezel" inset="2" arrowPosition="arrowAtCenter" preferredEdge="maxY" selectedItem="223" id="355">
+                            <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
+                            <font key="font" metaFont="miniSystem"/>
+                            <menu key="menu" title="OtherViews" id="222">
+                                <items>
+                                    <menuItem state="on" id="223"/>
+                                    <menuItem title="Item2" id="225"/>
+                                    <menuItem title="Item3" id="224"/>
+                                </items>
+                            </menu>
+                        </popUpButtonCell>
+                        <connections>
+                            <action selector="selectSource:" target="228" id="231"/>
+                        </connections>
+                    </popUpButton>
+                    <textField toolTip="choose starting note" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="226">
+                        <rect key="frame" x="22" y="6" width="21" height="11"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="11" id="fMd-Ug-MUx"/>
+                        </constraints>
+                        <textFieldCell key="cell" controlSize="small" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" state="on" alignment="left" title="src" id="356">
+                            <font key="font" size="9" name="Monaco"/>
+                            <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                            <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                        </textFieldCell>
+                    </textField>
+                    <button toolTip="view help" imageHugsTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="277">
+                        <rect key="frame" x="277" y="3" width="32" height="17"/>
+                        <buttonCell key="cell" type="square" title="help" bezelStyle="shadowlessSquare" alignment="center" borderStyle="border" inset="2" id="357">
+                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                            <font key="font" size="9" name="Monaco"/>
+                        </buttonCell>
+                        <connections>
+                            <action selector="toggle:" target="286" id="292"/>
+                        </connections>
+                    </button>
+                    <button toolTip="view keystroke labels for &quot;special&quot; keys" imageHugsTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="278">
+                        <rect key="frame" x="313" y="3" width="65" height="17"/>
+                        <buttonCell key="cell" type="square" title="keystrokes" bezelStyle="shadowlessSquare" alignment="center" borderStyle="border" inset="2" id="358">
+                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                            <font key="font" size="9" name="Monaco"/>
+                        </buttonCell>
+                        <connections>
+                            <action selector="toggle:" target="279" id="285"/>
+                        </connections>
+                    </button>
+                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="q9z-kp-T22">
+                        <rect key="frame" x="22" y="24" width="358" height="11"/>
+                        <textFieldCell key="cell" lineBreakMode="clipping" selectable="YES" enabled="NO" allowsUndo="NO" id="ixg-60-k7T">
+                            <font key="font" size="9" name="Monaco"/>
+                            <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                            <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                        </textFieldCell>
+                    </textField>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="278" firstAttribute="leading" secondItem="277" secondAttribute="trailing" constant="4" id="1ez-nK-VpF"/>
+                    <constraint firstItem="45" firstAttribute="leading" secondItem="27" secondAttribute="trailing" constant="5" id="2wu-tk-PhD"/>
+                    <constraint firstItem="27" firstAttribute="leading" secondItem="39" secondAttribute="trailing" constant="2" id="6pG-4N-NoF"/>
+                    <constraint firstItem="39" firstAttribute="centerY" secondItem="21" secondAttribute="centerY" id="71T-2H-MjP"/>
+                    <constraint firstItem="278" firstAttribute="trailing" secondItem="27" secondAttribute="trailing" id="7NV-mV-6tl"/>
+                    <constraint firstAttribute="bottom" secondItem="226" secondAttribute="bottom" constant="6" id="BTr-h6-BCT"/>
+                    <constraint firstItem="43" firstAttribute="top" secondItem="41" secondAttribute="bottom" constant="3" id="IKw-mt-h2N"/>
+                    <constraint firstItem="44" firstAttribute="top" secondItem="45" secondAttribute="bottom" constant="4" id="KuF-cn-ZE8"/>
+                    <constraint firstItem="q9z-kp-T22" firstAttribute="leading" secondItem="21" secondAttribute="leading" id="MXK-Qy-cc2"/>
+                    <constraint firstItem="27" firstAttribute="bottom" secondItem="21" secondAttribute="bottom" id="RHN-gr-F0F"/>
+                    <constraint firstItem="q9z-kp-T22" firstAttribute="top" secondItem="21" secondAttribute="bottom" constant="8" symbolic="YES" id="VAw-0Z-B1b"/>
+                    <constraint firstAttribute="trailing" secondItem="45" secondAttribute="trailing" constant="6" id="VNm-wT-DTC"/>
+                    <constraint firstItem="277" firstAttribute="leading" secondItem="221" secondAttribute="trailing" constant="5" id="WTO-IJ-65w"/>
+                    <constraint firstItem="21" firstAttribute="leading" secondItem="41" secondAttribute="trailing" constant="7" id="Wj6-0V-8pO"/>
+                    <constraint firstItem="221" firstAttribute="centerY" secondItem="226" secondAttribute="centerY" id="Ycz-bt-das"/>
+                    <constraint firstItem="45" firstAttribute="top" secondItem="6" secondAttribute="top" constant="15" id="aPc-kD-h2g"/>
+                    <constraint firstItem="41" firstAttribute="leading" secondItem="6" secondAttribute="leading" constant="6" id="aUa-Kp-gWG"/>
+                    <constraint firstItem="221" firstAttribute="leading" secondItem="226" secondAttribute="trailing" constant="10" id="cjr-s6-qnc"/>
+                    <constraint firstItem="278" firstAttribute="centerY" secondItem="277" secondAttribute="centerY" id="f9y-oU-k6Q"/>
+                    <constraint firstItem="21" firstAttribute="width" secondItem="28" secondAttribute="width" id="fJP-Bt-dsb"/>
+                    <constraint firstItem="41" firstAttribute="top" secondItem="6" secondAttribute="top" constant="16" id="iSk-AE-0MB"/>
+                    <constraint firstItem="44" firstAttribute="centerX" secondItem="45" secondAttribute="centerX" id="jWL-13-h2c"/>
+                    <constraint firstItem="27" firstAttribute="top" secondItem="21" secondAttribute="top" id="nCy-hA-kdX"/>
+                    <constraint firstItem="21" firstAttribute="top" secondItem="6" secondAttribute="top" constant="15" id="pBP-ay-lTV"/>
+                    <constraint firstItem="43" firstAttribute="centerX" secondItem="41" secondAttribute="centerX" id="rdJ-Nq-SQp"/>
+                    <constraint firstItem="226" firstAttribute="leading" secondItem="6" secondAttribute="leading" constant="24" id="tnJ-ct-bRa"/>
+                    <constraint firstItem="226" firstAttribute="top" secondItem="q9z-kp-T22" secondAttribute="bottom" constant="7" id="u7U-bm-Lls"/>
+                    <constraint firstItem="q9z-kp-T22" firstAttribute="trailing" secondItem="27" secondAttribute="trailing" id="w0d-lS-m8C"/>
+                    <constraint firstItem="39" firstAttribute="leading" secondItem="21" secondAttribute="trailing" constant="3" id="xyd-67-FfX"/>
+                    <constraint firstItem="277" firstAttribute="centerY" secondItem="221" secondAttribute="centerY" id="zlq-6A-Cq3"/>
+                </constraints>
+            </view>
+            <connections>
+                <outlet property="delegate" destination="-2" id="17"/>
+            </connections>
+            <point key="canvasLocation" x="14" y="187"/>
+        </window>
+        <arrayController objectClassName="StartNote" clearsFilterPredicateOnInsertion="NO" id="61" userLabel="StartNotes">
+            <declaredKeys>
+                <string>properties.number</string>
+                <string>properties.channel</string>
+                <string>endNotes</string>
+                <string>properties.ccValue</string>
+            </declaredKeys>
+            <classReference key="objectClass" className="StartNote"/>
+            <connections>
+                <binding destination="83" name="contentArray" keyPath="selection.startNotes" id="85"/>
+            </connections>
+        </arrayController>
+        <arrayController objectClassName="EndNote" clearsFilterPredicateOnInsertion="NO" id="62" userLabel="EndNotes">
+            <declaredKeys>
+                <string>properties.keystroke</string>
+                <string>properties.apple</string>
+                <string>properties.shift</string>
+                <string>properties.option</string>
+                <string>properties.control</string>
+            </declaredKeys>
+            <classReference key="objectClass" className="EndNote"/>
+            <connections>
+                <binding destination="61" name="contentArray" keyPath="selection.endNotes" id="82"/>
+            </connections>
+        </arrayController>
+        <customObject id="80" userLabel="MyController" customClass="MyController">
+            <connections>
+                <outlet property="displayLabel" destination="q9z-kp-T22" id="8ko-If-f3S"/>
+            </connections>
+        </customObject>
+        <objectController id="83" userLabel="ControllerAlias">
+            <declaredKeys>
+                <string>startNotes</string>
+            </declaredKeys>
+            <connections>
+                <outlet property="content" destination="80" id="84"/>
+            </connections>
+        </objectController>
+        <menu title="MainMenu" systemMenu="main" id="178" userLabel="MainMenu">
+            <items>
+                <menuItem title="midiStroke" id="179">
+                    <menu key="submenu" title="midiStroke" systemMenu="apple" id="180">
+                        <items>
+                            <menuItem title="About midiStroke" id="185">
+                                <modifierMask key="keyEquivalentModifierMask"/>
+                                <connections>
+                                    <action selector="orderFrontStandardAboutPanel:" target="-2" id="216"/>
+                                </connections>
+                            </menuItem>
+                            <menuItem isSeparatorItem="YES" id="186">
+                                <modifierMask key="keyEquivalentModifierMask" command="YES"/>
+                            </menuItem>
+                            <menuItem title="Hide midiStroke" keyEquivalent="h" id="187">
+                                <connections>
+                                    <action selector="hide:" target="-2" id="217"/>
+                                </connections>
+                            </menuItem>
+                            <menuItem title="Hide Others" keyEquivalent="h" id="182">
+                                <modifierMask key="keyEquivalentModifierMask" option="YES" command="YES"/>
+                                <connections>
+                                    <action selector="hideOtherApplications:" target="-2" id="218"/>
+                                </connections>
+                            </menuItem>
+                            <menuItem title="Show all" id="184">
+                                <connections>
+                                    <action selector="unhideAllApplications:" target="-2" id="219"/>
+                                </connections>
+                            </menuItem>
+                            <menuItem isSeparatorItem="YES" id="183">
+                                <modifierMask key="keyEquivalentModifierMask" command="YES"/>
+                            </menuItem>
+                            <menuItem title="Quit midiStroke" keyEquivalent="q" id="181">
+                                <connections>
+                                    <action selector="terminate:" target="-2" id="220"/>
+                                </connections>
+                            </menuItem>
+                        </items>
+                    </menu>
+                </menuItem>
+                <menuItem title="File" id="XP4-bK-tbb">
+                    <modifierMask key="keyEquivalentModifierMask"/>
+                    <menu key="submenu" title="File" id="6sG-0A-5rH">
+                        <items>
+                            <menuItem title="Save" keyEquivalent="s" id="t0W-oQ-s8S">
+                                <connections>
+                                    <action selector="save:" target="80" id="9RP-hP-5Rs"/>
+                                </connections>
+                            </menuItem>
+                        </items>
+                    </menu>
+                </menuItem>
+                <menuItem title="Window" id="188" userLabel="Window">
+                    <menu key="submenu" title="Window" systemMenu="window" id="189">
+                        <items>
+                            <menuItem title="Minimize" keyEquivalent="m" id="193">
+                                <connections>
+                                    <action selector="performMiniaturize:" target="-1" id="210"/>
+                                </connections>
+                            </menuItem>
+                            <menuItem title="Zoom" id="190">
+                                <connections>
+                                    <action selector="performZoom:" target="-1" id="208"/>
+                                </connections>
+                            </menuItem>
+                            <menuItem isSeparatorItem="YES" id="191">
+                                <modifierMask key="keyEquivalentModifierMask" command="YES"/>
+                            </menuItem>
+                            <menuItem title="Bring All to Front" id="192">
+                                <connections>
+                                    <action selector="arrangeInFront:" target="-1" id="207"/>
+                                </connections>
+                            </menuItem>
+                        </items>
+                    </menu>
+                </menuItem>
+            </items>
+            <point key="canvasLocation" x="-36" y="-36"/>
+        </menu>
+        <customObject id="228" userLabel="KeyStroke" customClass="KeyStroke">
+            <connections>
+                <outlet property="convert" destination="80" id="230"/>
+                <outlet property="mainWindow" destination="5" id="303"/>
+                <outlet property="sourcePopup" destination="221" id="229"/>
+            </connections>
+        </customObject>
+        <drawer trailingOffset="15" id="279" userLabel="keystrokeDrawer">
+            <size key="contentSize" width="100" height="107"/>
+            <size key="minContentSize" width="50" height="50"/>
+            <size key="maxContentSize" width="600" height="400"/>
+            <connections>
+                <outlet property="contentView" destination="280" id="283"/>
+                <outlet property="parentWindow" destination="5" id="284"/>
+            </connections>
+        </drawer>
+        <customView id="280" userLabel="keystrokeView">
+            <rect key="frame" x="0.0" y="0.0" width="93" height="114"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <subviews>
+                <scrollView fixedFrame="YES" horizontalLineScroll="10" horizontalPageScroll="10" verticalLineScroll="10" verticalPageScroll="10" hasHorizontalScroller="NO" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="281">
+                    <rect key="frame" x="0.0" y="0.0" width="93" height="110"/>
+                    <autoresizingMask key="autoresizingMask" heightSizable="YES"/>
+                    <clipView key="contentView" id="IYy-3q-OXo">
+                        <rect key="frame" x="1" y="1" width="91" height="108"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <subviews>
+                            <textView importsGraphics="NO" verticallyResizable="YES" usesFontPanel="YES" findStyle="panel" continuousSpellChecking="YES" usesRuler="YES" spellingCorrection="YES" smartInsertDelete="YES" id="282">
+                                <rect key="frame" x="0.0" y="-21.79248046875" width="91" height="340.79248046875"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                                <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                <size key="minSize" width="91" height="108"/>
+                                <size key="maxSize" width="160" height="10000000"/>
+                                <attributedString key="textStorage">
+                                    <fragment>
+                                        <string key="content">RETURN
+TAB
+SPACE
+DELETE
+ENTER
+ESCAPE
+CLEAR
+NUM1
+NUM2
+NUM3 etc.
+NUM*
+NUM-
+NUM/
+NUMENTER
+NUM.
+NUM=
++
+F1
+F2
+F3 etc.
+HELP
+HOME
+PGUP
+END
+PGDN
+LEFT
+RIGHT
+UP
+DOWN</string>
+                                        <attributes>
+                                            <color key="NSColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                                            <font key="NSFont" size="9" name="Monaco"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0" allowsDefaultTighteningForTruncation="NO"/>
+                                        </attributes>
+                                    </fragment>
+                                </attributedString>
+                                <color key="insertionPointColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                            </textView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </clipView>
+                    <scroller key="horizontalScroller" hidden="YES" wantsLayer="YES" verticalHuggingPriority="750" doubleValue="1" horizontal="YES" id="368">
+                        <rect key="frame" x="-100" y="-100" width="87" height="18"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </scroller>
+                    <scroller key="verticalScroller" wantsLayer="YES" verticalHuggingPriority="750" horizontal="NO" id="369">
+                        <rect key="frame" x="76" y="1" width="16" height="108"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </scroller>
+                </scrollView>
+            </subviews>
+        </customView>
+        <drawer preferredEdge="minX" trailingOffset="15" id="286" userLabel="helpDrawer">
+            <size key="contentSize" width="225" height="107"/>
+            <size key="minContentSize" width="50" height="50"/>
+            <size key="maxContentSize" width="600" height="400"/>
+            <connections>
+                <outlet property="contentView" destination="287" id="290"/>
+                <outlet property="parentWindow" destination="5" id="291"/>
+            </connections>
+        </drawer>
+        <customView id="287" userLabel="helpView">
+            <rect key="frame" x="0.0" y="0.0" width="225" height="131"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <subviews>
+                <scrollView fixedFrame="YES" horizontalLineScroll="0.0" horizontalPageScroll="0.0" verticalLineScroll="0.0" verticalPageScroll="0.0" hasHorizontalScroller="NO" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="288">
+                    <rect key="frame" x="0.0" y="-7" width="225" height="114"/>
+                    <autoresizingMask key="autoresizingMask" heightSizable="YES"/>
+                    <clipView key="contentView" id="89T-S6-QaV">
+                        <rect key="frame" x="1" y="1" width="223" height="112"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <subviews>
+                            <textView importsGraphics="NO" verticallyResizable="YES" usesFontPanel="YES" findStyle="panel" continuousSpellChecking="YES" usesRuler="YES" spellingCorrection="YES" smartInsertDelete="YES" id="289">
+                                <rect key="frame" x="0.0" y="-24.0703125" width="208" height="1020"/>
+                                <autoresizingMask key="autoresizingMask" heightSizable="YES"/>
+                                <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                                <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                <size key="minSize" width="208" height="112"/>
+                                <size key="maxSize" width="225" height="10000000"/>
+                                <attributedString key="textStorage">
+                                    <fragment>
+                                        <string key="content">help
+</string>
+                                        <attributes>
+                                            <color key="NSColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                                            <font key="NSFont" size="12" name="Arial-BoldMT"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0" allowsDefaultTighteningForTruncation="NO"/>
+                                        </attributes>
+                                    </fragment>
+                                    <fragment>
+                                        <mutableString key="content">midiStroke works by converting a trigger midi note, cc or program change message on a given channel into a keystroke (or series of keystrokes) of your choice.
+
+To add a trigger, hit the plus button in the upper LEFT hand corner. You will see a row added to the left table of triggers. Enter the note, cc or program change message you would like to use as a trigger, and a channel to look for it on. It is not necessary to enter anything in the "value" field UNLESS YOU WANT TO USE A CC MESSAGE FOR THE TRIGGER, in which case you should enter a value to trigger the keystroke. If you enter 0 for the chanel, midiStroke will check all channels for messages of that number. Similarly, if you assign a ccValue of -1 ALL ccValues associated with the corresponding cc message will trigger the keystrokes for rapid firing madness.
+
+With the row you just created highlighted, hit the plus sign in the upper RIGHT hand corner to add a keystroke to be created by the corresponding trigger. Enter the keystroke you would like created in the keystroke column. If you want to use a "special" key (delete, enter, etc.) hit the keystrokes button at the bottom of the application to see a list of all the different values that can be entered. Check the modifier boxes to add modifiers. You can have as many keystrokes as you want associated with any one trigger.
+
+Finally, make sure you have a midi source selected from the pull down menu at the bottom of the screen. midiStroke should now send keystrokes to whatever application is focused. Once you configure midiStroke, you can hide it and leave it running in the background.
+
+midiStroke saves your triggers and keystrokes to User &gt; Library &gt; Application Support &gt; midiStroke. It saves this data upon quitting the program.
+
+If you would like to use midiStroke to simulate a typewriter, look in the preferences. Here you can enter note numbers that will turn modifier keys on when a note is pressed and off when one is released. Thus pressing note C3 could simulate pressing the Shift key and releasing C3 would simulate the release of the Shift key. Modifiers are available for Shift, Command, Option and Control.
+</mutableString>
+                                        <attributes>
+                                            <color key="NSColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                                            <font key="NSFont" size="12" name="ArialMT"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0" allowsDefaultTighteningForTruncation="NO"/>
+                                        </attributes>
+                                    </fragment>
+                                </attributedString>
+                                <color key="insertionPointColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                            </textView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </clipView>
+                    <scroller key="horizontalScroller" hidden="YES" wantsLayer="YES" verticalHuggingPriority="750" doubleValue="1" horizontal="YES" id="370">
+                        <rect key="frame" x="-100" y="-100" width="87" height="18"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </scroller>
+                    <scroller key="verticalScroller" wantsLayer="YES" verticalHuggingPriority="750" doubleValue="7.7436674008810578e-05" horizontal="NO" id="371">
+                        <rect key="frame" x="208" y="1" width="16" height="112"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </scroller>
+                </scrollView>
+            </subviews>
+        </customView>
+        <userDefaultsController representsSharedInstance="YES" id="329" userLabel="Shared Defaults"/>
+    </objects>
+    <resources>
+        <image name="checkedBtnSmall" width="12" height="12"/>
+        <image name="checkedMinusSmall" width="11" height="11"/>
+        <image name="checkedPlusSmall" width="11" height="11"/>
+        <image name="uncheckedBtnSmall" width="12" height="12"/>
+        <image name="uncheckedMinusSmall" width="11" height="11"/>
+        <image name="uncheckedPlusSmall" width="11" height="11"/>
+    </resources>
+</document>
