@@ -197,7 +197,6 @@
                             }
                             
                             if (noteDown) {
-                                printf("down\n");
                                 CGEventRef down = CGEventCreateKeyboardEvent( NULL, (CGKeyCode)theLetter, true);
                                 CGEventSetFlags(down, (flags | CGEventGetFlags(down)));
                                 CGEventPost(kCGHIDEventTap, down);
@@ -205,7 +204,6 @@
                             }
                             
                             if (noteUp) {
-                                printf("up\n");
                                 CGEventRef up = CGEventCreateKeyboardEvent( NULL, (CGKeyCode)theLetter, false);
                                 CGEventSetFlags(up, (flags | CGEventGetFlags(up)));
                                 CGEventPost(kCGHIDEventTap, up);
